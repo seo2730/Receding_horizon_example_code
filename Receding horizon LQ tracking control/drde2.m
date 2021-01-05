@@ -5,7 +5,7 @@ function [K_N_1,K_history_vec] = drde2(A,B,C,Q,R,Qf,N)
     % system dimension
     n = size(A,1);
     % boundary condition
-    K_0 = C'*Qf*C 
+    K_0 = C'*Qf*C;
     K_0_vec = mtx2vec(K_0);
     K_history_vec = K_0_vec;
     K_i = K_0;
@@ -17,5 +17,5 @@ function [K_N_1,K_history_vec] = drde2(A,B,C,Q,R,Qf,N)
     end
     % constant feedback gain K(N-1) for RHTC
     [s1,s2] = size(K_history_vec);
-    K_N_1 = vec2mtx(K_history_vec(:,s2));
+    K_N_1 = vec2mtx(K_history_vec(:,(s2-n*n+1):s2));
 end
