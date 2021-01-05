@@ -1,6 +1,6 @@
 M = 1; bb = 0.01; Ac = [0 1 0 0;0 -bb/M 0 0;0 0 0 1;0 0 0 -bb/M];
 Bc = [0 0 ;1/M 0 ; 0 0;0 1/M]; Cc = [1 0 0 0 ;0 0 1 0]; Dc = [0 0;0 0]; 
-Ts = 0.055; [A B C D] = c2dm(Ac,Bc,Cc,Dc,Ts,'zoh');
+Ts = 0.055; [A, B, C, D] = c2dm(Ac,Bc,Cc,Dc,Ts,'zoh');
 % design parameter in cost function
 % - state weighting matrix: Q
 % - control weighting matrix: R
