@@ -20,7 +20,7 @@ function [g_1,g_history] = dvde_hinf(A, B, Bw, C, Q, R, Rw, Qf, gamma_2, N, K_hi
         end
         
         if flag == 1
-            g_j = -A'*inv(Lambda)*g_j - C'*Q*yr(:,i+j)
+            g_j = -A'*inv(Lambda)*g_j - C'*Q*yr(:,i+j);
             g_history = [g_history g_j];
         end
     end
