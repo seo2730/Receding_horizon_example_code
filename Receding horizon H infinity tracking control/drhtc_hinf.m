@@ -22,9 +22,9 @@ function [x, y, u, w] = drhtc_hinf (x0, A, B, Bw, C, Q, R, Rw, Qf, gamma_2, N, y
         % time-varying feed feedward gain g for RHTC
         [g_1 g_history] = dvde_hinf(A ,B ,Bw ,C ,Q ,R ,Rw ,Qf ,gamma_2, N, K_history_vec, yr, i);
         % receding horizon tracking controller u(i)
-        Lambda = eye(system_order) + K_N_1 * ( B*inv(R)*B' - 1/gamma_2 * Bw*inv(Rw)*Bw') ;
+        Lambda = eye(system_order) + K_N_1 * ( B*inv(R)*B' - 1/gamma_2 * Bw*inv(Rw)*Bw');
         ui = -inv(R) * B' * inv( Lambda )*( K_N_1 * A * xi + g_1 ) ;
-        wi = 1/gamma_2* inv(Rw) * Bw' * inv ( Lambda ) * ( K_N_1 * A * xi + g_1 ) ;
+        wi = 1/gamma_2 * inv(Rw) * Bw' * inv ( Lambda ) * ( K_N_1 * A * xi + g_1 ) ;
         % plant is controlled by rhtc u(i) at time [i,i+1]
         xi = A*xi + B*ui + Bw*wi;
         yi = C*xi;

@@ -11,7 +11,7 @@ function [K_N_1,K_history_vec] = drde2_hinf (A, B, Bw, C, Q, R, Rw, Qf, gamma_2,
         if min (real (eig (Rw - 1/gamma_2*Bw'*K_i*Bw)))< 0
             error ('error');
         end
-        Lambda = eye(n) + K_i * ( B*inv(R)*B' - 1 / gamma_2 * Bw * Rw^(-1) * Bw' ) ;
+        Lambda = eye(n) + K_i * ( B*inv(R)*B' - 1 / gamma_2 * Bw * inv(Rw) * Bw' ) ;
         K_i = A' * inv(Lambda) * K_i *A + C'*Q*C;
         K_i_vec = mtx2vec(K_i);
         K_history_vec = [K_history_vec K_i_vec];

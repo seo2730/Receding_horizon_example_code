@@ -25,7 +25,7 @@ is = 440;
 % Discrete-time RHTC for Unconstrained Systems
 % initial state
 x0 = [ 1; 0; 1; 0]; Qf = 100*eye(2); Q = eye(2);
-gamma_2 = 3; 
+gamma_2 = 10; 
 [x_hinf,y_hinf,u_hinf,w] = drhtc_hinf (x0, A, B, Bw, C, Q, R, Rw, Qf, gamma_2, N, yr, is);
 [x,y,u] = drhlqtc(x0,A,B,C,Q,R,Qf,N,yr,is);
 
