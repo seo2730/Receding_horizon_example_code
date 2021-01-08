@@ -40,9 +40,15 @@
 
      Xi = G_bar * Q_stack *G_bar' + R_stack ;
      
+<br>
+<br>
 # Robustness of MVF filters
 
 ### System and parameters
+![image](https://user-images.githubusercontent.com/42115807/103979047-3930c400-51c0-11eb-8af7-a48c907107ac.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/103979094-4e0d5780-51c0-11eb-913e-c95d0566c6f2.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/103980467-4a2f0480-51c3-11eb-935f-a59a22aa1904.png)<br>
+
     A = [0.9305      0  0.1107; 
          0.0077 0.9802 -0.0173; 
          0.0142      0  0.8953];
@@ -59,13 +65,15 @@
     N_order = size(A,1); 
     N_horizon = 10;
 
+<br>
 ### Making big matrices for FIR filters
     [B_bar, C_bar, G_bar, Xi] = MakeBigMatrices (A,B,C,G,Q,R,10);
     
 ![image](https://user-images.githubusercontent.com/42115807/103978498-ec002280-51be-11eb-9315-a933f14b74ad.png)<br>
     
     H = inv(C_bar'*inv(Xi) * C_bar) * C_bar'*inv(Xi);
-    
+ 
+<br>
 ### Parameter initialize
     intial_state= [0 0 0 ]'; 
     x = intial_state;
@@ -80,7 +88,8 @@
     measurements = zeros(2*N_sample);
     delta_A = 0.1*[1 0 0;0 1 0;0 0 0.1 ];
     delta_C = 0.1*[0.1 0 0;0 0.1 0 ];
-    
+  
+<br>
 ### Main procedure
     for i = 1 : N_sample-1
         if( i > 50 && i < 101 )
@@ -104,3 +113,33 @@
     end
     
 **코드 설명 :**<br>
+
+    if( i > 50 && i < 101 )
+        x = (A+delta_A)*x + G*randn(1)*0.02;
+        y = (C+delta_C)*x + randn(2,1)*0.04;
+    else
+        x = A*x + G*randn(1)*0.02;
+        y = C*x + randn(2,1)*0.04;
+    end
+
+delta 조건 때문에 이런 식으로 코드를 짜보았다. 뒤에 random 함수는 noise를 추가하였다.<br>
+
+    % IIR_filter : one step predicted estimate
+    IIR_x_hat = A * IIR_x_hat + A * P *C' * inv( R + C * P * C') * ( y - C*IIR_x_hat);
+    P = A * inv( eye(N_order) + P * C' * inv(R) * C) * P * A' + G * Q * G';
+    estimated_state(:,i+1)=IIR_x_hat;
+    measurements(2*i-1:2*i) = y;
+    
+IIR filter는 Kalma filter와 같다.<br>
+
+    % FIR filter
+    if i>10
+        FIR_x_hat = H * (measurements(2*i-19:2*i))';
+    end
+        FIR_estimated_state(:,i+1) = FIR_x_hat;
+
+FIR filter는 horizon 크기가 10이므로 10 이상이 되어야 추정이 가능하다.<br>
+![image](https://user-images.githubusercontent.com/42115807/103981006-45b71b80-51c4-11eb-88f1-60635733339e.png)<br>
+위 사진 코드가<br>
+
+    FIR_x_hat = H * (measurements(2*i-19:2*i))'
