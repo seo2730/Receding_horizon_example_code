@@ -22,7 +22,8 @@ function [B_bar , C_bar , G_bar , Xi] = MakeBigMatrices(A,B,C,G,Q,R,horizon)
         end
             G_bar = [G_bar -C_bar*A_inv*G; zeros(N_output, N_system_noise*(i-1)) -C*A_inv*G ] ;
             C_bar = [C * A_inv_i ;C_bar];
-            Q_stack = daug(Q_stack,Q); R_stack = daug(R_stack,R);
+            Q_stack = daug(Q_stack,Q); 
+            R_stack = daug(R_stack,R);
     end
     Xi = G_bar * Q_stack *G_bar' + R_stack ;
 end
