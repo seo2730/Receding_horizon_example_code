@@ -75,6 +75,7 @@
  
 <br>
 ### Parameter initialize
+
     intial_state= [0 0 0 ]'; 
     x = intial_state;
     IIR_x_hat = [0 0 0]'; 
@@ -91,6 +92,7 @@
   
 <br>
 ### Main procedure
+
     for i = 1 : N_sample-1
         if( i > 50 && i < 101 )
             x = (A+delta_A)*x + G*randn(1)*0.02;
