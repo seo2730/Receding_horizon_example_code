@@ -42,9 +42,11 @@
      
 <br>
 <br>
+
 # Robustness of MVF filters
 
 ### System and parameters
+
 ![image](https://user-images.githubusercontent.com/42115807/103979047-3930c400-51c0-11eb-8af7-a48c907107ac.png)<br>
 ![image](https://user-images.githubusercontent.com/42115807/103979094-4e0d5780-51c0-11eb-913e-c95d0566c6f2.png)<br>
 ![image](https://user-images.githubusercontent.com/42115807/103980467-4a2f0480-51c3-11eb-935f-a59a22aa1904.png)<br>
@@ -67,6 +69,7 @@
 
 <br>
 ### Making big matrices for FIR filters
+
     [B_bar, C_bar, G_bar, Xi] = MakeBigMatrices (A,B,C,G,Q,R,10);
     
 ![image](https://user-images.githubusercontent.com/42115807/103978498-ec002280-51be-11eb-9315-a933f14b74ad.png)<br>
