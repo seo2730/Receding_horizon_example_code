@@ -9,7 +9,8 @@ function [B_bar , C_bar , G_bar , Xi] = MakeBigMatrices(A,B,C,G,Q,R,horizon)
         B_bar = C * A_inv * B;
     end
     
-    C_bar = C * A_inv; G_bar = -C * A_inv * G;
+    C_bar = C * A_inv; 
+    G_bar = -C * A_inv * G;
     Q_stack = Q ; R_stack = R ; A_inv_i = A_inv;
     % parameter setting
     N_input = size(B,2); N_output = size(C,1);
