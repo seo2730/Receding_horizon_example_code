@@ -145,3 +145,13 @@ FIR filter는 horizon 크기가 10이므로 10 이상이 되어야 추정이 가
 위 사진 코드가<br>
 
     FIR_x_hat = H * (measurements(2*i-19:2*i))'
+
+# Result
+![image](https://user-images.githubusercontent.com/42115807/103981197-b3634780-51c4-11eb-98ee-fa06c87cccdb.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/103981211-bb22ec00-51c4-11eb-916a-2f51d6de8e79.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/103981242-c8d87180-51c4-11eb-8ec4-e7da14e27992.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/103981259-d130ac80-51c4-11eb-8929-d2a22699c4ad.png)<br>
+Blue line : Kalman Filter, Red line : FIR filter<br>
+<br>
+결과가 다른 이유는 random 함수 때문이다. 대체적으로 FIR가 robust한 것을 볼 수 있다
+
