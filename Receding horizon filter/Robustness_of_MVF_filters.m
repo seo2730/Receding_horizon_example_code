@@ -52,11 +52,35 @@ for i = 1 : N_sample-1
     estimated_state(:,i+1)=IIR_x_hat;
     measurements(2*i-1:2*i) = y;
     % FIR filter
-    if i>10
+    if i>=10
         FIR_x_hat = H * (measurements(2*i-19:2*i))';
+    else
+        FIR_x_hat = x;
     end
         FIR_estimated_state(:,i+1) = FIR_x_hat;
 end
 
 % Plot
-plot( 1:N_sample , real_state(2,:)-estimated_state(2,:), 1:N_sample , real_state(2,:)-FIR_estimated_state(2,:))
+figure(1)
+plot(1:N_sample , real_state(1,:),1:N_sample,FIR_estimated_state(1,:),1:N_sample,estimated_state(1,:))
+legend("Real","FIR","IIR")
+
+figure(2)
+plot(1:N_sample , real_state(2,:),1:N_sample,FIR_estimated_state(2,:),1:N_sample,estimated_state(2,:))
+legend("Real","FIR","IIR")
+
+figure(3)
+plot(1:N_sample , real_state(3,:),1:N_sample,FIR_estimated_state(3,:),1:N_sample,estimated_state(3,:))
+legend("Real","FIR","IIR")
+
+figure(4)
+plot(1:N_sample , real_state(1,:)-FIR_estimated_state(1,:) , 1:N_sample,real_state(1,:)-estimated_state(1,:))
+legend("FIR error","IIR error")
+
+figure(5)
+plot(1:N_sample , real_state(2,:)-FIR_estimated_state(2,:) , 1:N_sample,real_state(2,:)-estimated_state(2,:))
+legend("FIR error","IIR error")
+
+figure(6)
+plot(1:N_sample , real_state(3,:)-FIR_estimated_state(3,:) , 1:N_sample,real_state(3,:)-estimated_state(3,:))
+legend("FIR error","IIR error")
