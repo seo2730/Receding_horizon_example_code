@@ -1,4 +1,4 @@
-# Recedgin horizon LQ tracking control
+# Recedgin horizon LQ tracking control(Free terminal cost) 
 
 ## Function drhlqtc.m
 
@@ -40,6 +40,13 @@
     end
 
 ## Function drde2.m
+
+![image](https://user-images.githubusercontent.com/42115807/104813997-dc807980-584f-11eb-9799-a6a251458cf0.png)<br>
+
+#### Forward computation
+
+![image](https://user-images.githubusercontent.com/42115807/104814077-50bb1d00-5850-11eb-8f97-4cc357d67abb.png)<br>
+
 
     function [K_N_1,K_history_vec] = drde2(A,B,C,Q,R,Qf,N)
         % DRDE2 Discrete-time Riccati Difference Equation Solver
