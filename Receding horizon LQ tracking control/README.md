@@ -1,10 +1,11 @@
-# Recedgin horizon LQ tracking control(Free terminal cost) 
+# Receding horizon LQ tracking control(Free terminal cost) 
 
 ## Function drhlqtc.m
 
 ![image](https://user-images.githubusercontent.com/42115807/104814439-3124f400-5852-11eb-943e-16ea962ce2d7.png)<br>
 ![image](https://user-images.githubusercontent.com/42115807/104814404-05a20980-5852-11eb-9f0b-e477d01ee916.png)<br>
--> 위 식은 Matrix inverse 공식 이용하면 된다.
+-> 위 식은 Matrix inverse 공식 이용하면 된다.<br>
+-> yr는 reference value이다.
 
     function [x,y,u] = drhlqtc(x0,A,B,C,Q,R,Qf,N,yr,is)
         % DRHTC Discrete-time RHTC for Unconstrained Systems
@@ -100,6 +101,7 @@
     end
 
 ## Function mtx2vec.m
+Matrix에서 Vector로 변경해주는 함수이다.<br>
 
     function vec = mtx2vec(mtx)
         vec = reshape(mtx', 1, []);
@@ -107,6 +109,7 @@
     end
 
 ## Function vec2mtx.m
+Vector에서 Matrix로 변경해주는 함수이다.<br>
 
     function mtx = vec2mtx(vec)
         [s1,s2] = size(vec);
