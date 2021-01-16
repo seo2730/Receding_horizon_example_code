@@ -41,12 +41,14 @@
 
 ## Function drde2.m
 
-![image](https://user-images.githubusercontent.com/42115807/104813997-dc807980-584f-11eb-9799-a6a251458cf0.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104814077-50bb1d00-5850-11eb-8f97-4cc357d67abb.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104814172-bc9d8580-5850-11eb-9fcc-390a1c7b524f.png)<br>
 
 #### Forward computation
 
-![image](https://user-images.githubusercontent.com/42115807/104814077-50bb1d00-5850-11eb-8f97-4cc357d67abb.png)<br>
-
+![image](https://user-images.githubusercontent.com/42115807/104814182-d2ab4600-5850-11eb-8453-f58a5fc784c3.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104814222-100fd380-5851-11eb-8c6b-36019ea67334.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104814232-21f17680-5851-11eb-86fc-c4ee970f9fb4.png)<br>
 
     function [K_N_1,K_history_vec] = drde2(A,B,C,Q,R,Qf,N)
         % DRDE2 Discrete-time Riccati Difference Equation Solver
