@@ -2,6 +2,10 @@
 
 ## Function drhlqtc.m
 
+![image](https://user-images.githubusercontent.com/42115807/104814439-3124f400-5852-11eb-943e-16ea962ce2d7.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104814404-05a20980-5852-11eb-9f0b-e477d01ee916.png)<br>
+-> 위 식은 Matrix inverse 공식 이용하면 된다.
+
     function [x,y,u] = drhlqtc(x0,A,B,C,Q,R,Qf,N,yr,is)
         % DRHTC Discrete-time RHTC for Unconstrained Systems
         % convert reference vector to row vector
@@ -41,12 +45,12 @@
 
 ## Function drde2.m
 
-![image](https://user-images.githubusercontent.com/42115807/104814077-50bb1d00-5850-11eb-8f97-4cc357d67abb.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104814182-d2ab4600-5850-11eb-8453-f58a5fc784c3.png)<br>
 ![image](https://user-images.githubusercontent.com/42115807/104814172-bc9d8580-5850-11eb-9fcc-390a1c7b524f.png)<br>
 
 #### Forward computation
 
-![image](https://user-images.githubusercontent.com/42115807/104814182-d2ab4600-5850-11eb-8453-f58a5fc784c3.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104814077-50bb1d00-5850-11eb-8f97-4cc357d67abb.png)<br>
 ![image](https://user-images.githubusercontent.com/42115807/104814222-100fd380-5851-11eb-8c6b-36019ea67334.png)<br>
 ![image](https://user-images.githubusercontent.com/42115807/104814232-21f17680-5851-11eb-86fc-c4ee970f9fb4.png)<br>
 
@@ -73,6 +77,9 @@
     end
 
 ## Function dvde.m
+
+![image](https://user-images.githubusercontent.com/42115807/104814263-4c433400-5851-11eb-9780-dee1b854d1e0.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104814296-7d236900-5851-11eb-9515-aeec34cf3307.png)<br>
 
     function [g_1,g_history ] = dvde(A,B,C,Q,R,Qf,N,K_history_vec,yr,i)
         %DVDE Discrete-time Vector Differential Equation Solver
