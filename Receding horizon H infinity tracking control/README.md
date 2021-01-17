@@ -2,6 +2,10 @@
 
 ## Function drhtc_hinf.m
 
+![image](https://user-images.githubusercontent.com/42115807/104828974-36b22680-58b2-11eb-8880-2638d405a0ee.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104829023-ea1b1b00-58b2-11eb-8a63-0c93d86fc5ad.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104829027-fa32fa80-58b2-11eb-80ef-c83fe88685ed.png)<br>
+
     function [x, y, u, w] = drhtc_hinf (x0, A, B, Bw, C, Q, R, Rw, Qf, gamma_2, N, yr, is)
         % convert reference vector to row vector
         [s1,s2] = size(yr); 
@@ -45,6 +49,10 @@
 
 ## Function drde2_hinf.m
 
+![image](https://user-images.githubusercontent.com/42115807/104829041-146cd880-58b3-11eb-88fa-25bfd26aac3e.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104829050-19318c80-58b3-11eb-94c7-08581e1e3c24.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104829027-fa32fa80-58b2-11eb-80ef-c83fe88685ed.png)<br>
+
     function [K_N_1,K_history_vec] = drde2_hinf (A, B, Bw, C, Q, R, Rw, Qf, gamma_2, N )
         % system dimension
         n = size(A,1);
@@ -69,6 +77,11 @@
     end
 
 ## Function dvde_hinf.m
+![image](https://user-images.githubusercontent.com/42115807/104829067-4847fe00-58b3-11eb-948b-77e0f19dc15f.png)<br>
+![image](https://user-images.githubusercontent.com/42115807/104829027-fa32fa80-58b2-11eb-80ef-c83fe88685ed.png)<br>
+위 식들이 성립할려면 아래 식이 성립되어야한다.<br>
+![image](https://user-images.githubusercontent.com/42115807/104829083-6d3c7100-58b3-11eb-973a-0320ff8a0b9b.png)<br>
+
 
     function [g_1,g_history] = dvde_hinf(A, B, Bw, C, Q, R, Rw, Qf, gamma_2, N, K_history_vec, yr, i)
         n = size(A,1);
