@@ -39,9 +39,6 @@
 위 식의 코드는<br>
 
      Xi = G_bar * Q_stack *G_bar' + R_stack ;
-     
-<br>
-<br>
 
 # Robustness of MVF filters
 
@@ -67,7 +64,6 @@
     N_order = size(A,1); 
     N_horizon = 10;
 
-<br>
 ### Making big matrices for FIR filters
 
     [B_bar, C_bar, G_bar, Xi] = MakeBigMatrices (A,B,C,G,Q,R,10);
@@ -76,7 +72,6 @@
     
     H = inv(C_bar'*inv(Xi) * C_bar) * C_bar'*inv(Xi);
  
-<br>
 ### Parameter initialize
 
     intial_state= [0 0 0 ]'; 
@@ -93,7 +88,6 @@
     delta_A = 0.1*[1 0 0;0 1 0;0 0 0.1 ];
     delta_C = 0.1*[0.1 0 0;0 0.1 0 ];
   
-<br>
 ### Main procedure
 
     for i = 1 : N_sample-1
