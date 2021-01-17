@@ -117,3 +117,7 @@ Vector에서 Matrix로 변경해주는 함수이다.<br>
         mtx = reshape(vec',n,[]);
         %mtx = reshape(vec,(s1),[])';
     end
+    
+## Result
+![image](https://user-images.githubusercontent.com/42115807/104829106-de7c2400-58b3-11eb-9323-cd954507cbcc.png)
+
