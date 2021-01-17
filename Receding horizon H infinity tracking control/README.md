@@ -113,3 +113,6 @@
         [m,n] = size(g_history); 
         g_1 = g_history(:,n);
     end
+
+# Result
+![image](https://user-images.githubusercontent.com/42115807/104829127-21d69280-58b4-11eb-84d1-ff7f856a0d6e.png)
